@@ -1,0 +1,173 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(to bottom right, #fdc639, #ff7c60);
+    color: #fff;
+}
+
+.container {
+    width: 45rem;
+    border-radius: 20px;
+    padding: 30px 35px;
+    background-color: #000;
+}
+
+.container header {
+    color: #b2b2b2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h2 {
+    font-size: 1.6rem;
+}
+
+header .column {
+    display: flex;
+    align-items: center;
+}
+
+header .column span {
+    font-size: 1.19rem;
+    font-weight: 500;
+    margin-right: 15px;
+}
+
+.volume-slider input{
+    accent-color: #fff;
+    cursor: pointer;
+}
+
+.keys-check input{
+    width: 76px;
+    height: 19px;
+    appearance: none;
+    border-radius: 30px;
+    background-color: #4b4b4b;
+    cursor: pointer;
+    position: relative;
+}
+
+.keys-check input::before{
+    content: "";
+    height: 12px;
+    width: 23px;
+    background-color: #000;
+    top: 50%;
+    left: 0.3rem;
+    border-radius: inherit;
+    position: absolute;
+    transform: translateY(-50%);
+    transition: all 0.5s cubic-bezier(0.76, -0.51, 0.41, 1.42);
+}
+
+.keys-check input:checked::before {
+    left: 2.9rem;
+    background-color: #fff;
+}
+
+.piano-keys {
+    display: flex;
+    margin: 20px auto auto;
+    justify-content: center;
+    width: 40rem;
+}
+
+.piano-keys .key {
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+    color: #a2a2a2;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.piano-keys .white {
+    width: 70px;
+    height: 230px;
+    border: 1px solid #000;
+    border-radius: 8px;
+    background: linear-gradient(0deg, rgb(71 71 71) 1%, rgb(255 255 255)  3%, rgb(255 255 255) 100%);
+}
+
+.piano-keys .black {
+    width: 44px;
+    height: 140px;
+    z-index: 2;
+    margin: 0 -22px 0 -22px;
+    border: 1px solid #000;
+    border-radius: 0 0 5px 5px;
+    background: #202120;
+    background: linear-gradient(0deg, rgba(82,82,83,1) 2%, rgba(5,5,5,1)  4%, rgba(65,65,65,1) 60%, rgba(30,30,30,1) 86%, rgba(0,0,0,1) 100%);
+}
+
+.piano-keys span {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 1.13rem;
+}
+
+.piano-keys .white.active {
+    box-shadow: inset -5px 5px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to bottom #fff 0%, #eee 100%);
+    transform: perspective(100px) rotateX(-3deg) translateY(6px);  
+}
+
+.piano-keys .black.active {
+    box-shadow: inset -5px 5px 10px rgba(255, 255, 255, 0.1);
+    background: linear-gradient(to bottom #000, #434343); 
+}
+
+.piano-keys .key.hide span {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+      display: flex;
+      min-height: auto;
+      flex-direction: column;
+      position: absolute;
+      background-position: center center;
+      left: 202px;
+      top: 160px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .container {
+      position: absolute;
+      align-items: stretch;
+      display: flex;
+      flex-direction: column;
+      width: 40rem;
+      height: 23rem;
+      transform: rotate(-90deg);
+      margin: 2px 2px 2px 2px;
+      border-radius: 15px;
+      padding: 2px;
+    }
+
+    header .column {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    h2 {
+        margin-left: 10px;
+    }
+
+    .piano-keys {
+      display: flex;
+      width: 37rem;
+      margin: 40px auto auto;
+      background-color: #333;
+      border-radius: inherit;
+      justify-content: center;
+    }
+  }
